@@ -26,8 +26,11 @@ body {
 
     box-shadow: 0px 0px 8px 2px #000000;
   }
-  .leaflet-draw-toolbar .leaflet-draw-draw-polyline{
+  .leaflet-draw-toolbar .leaflet-draw-draw-polygon{
     display: none;
+  }
+  .leaflet-draw-actions{
+    visibility: none;
   }
   .leaflet-draw-toolbar .leaflet-draw-draw-circle{
     display: none;
@@ -38,3 +41,4 @@ body {
   .leaflet-draw-toolbar .leaflet-draw-draw-marker{
     display: none;
   }
+

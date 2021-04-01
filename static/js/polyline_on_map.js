@@ -23,11 +23,11 @@ var drawPluginOptions = {
   position: 'topright',
   draw: {
     // disable toolbar item by setting it to false
-    polyline: false,
+    polygon: false,
     circle: false, // Turns off this drawing tool
     rectangle: false,
     marker: false,
-    polygon: {
+    polyline: {
       allowIntersection: false, // Restricts shapes to simple polygons
       drawError: {
         color: '#e1e100', // Color the shape will turn when intersects
@@ -56,6 +56,7 @@ drawControlEdit = new L.Control.Draw({
   },
   draw: false
 });
+var layerGroup =  new L.FeatureGroup();
 var simplified;
 var simplified_created=0; //flag to check if the samplified polygon is created or not
 map.on('draw:created', function(e) {
@@ -74,54 +75,58 @@ map.on('draw:created', function(e) {
 map.on('draw:deleted', function (e) {
   drawControlEdit.remove();
   drawControl.addTo(map);
- 
   
+ 
   // }
 });
 
 document.getElementById("simplify").addEventListener("click", function() {
   if(polyline.length==0){
-    alert("No polygon is drawn!!");
+    alert("No polyline is drawn!!");
     return;
   }
   if(simplified_created){// simplified is already created and no more polygon is drawn
-    alert("Simplified polygon is already created and no more polygon is drawn!");
+    alert("Simplified polyline is already created and no more polygon is drawn!");
     return;   
   }
   console.log("outputlayers:");
   console.log(polyline);
   
 
-  console.log(polyline[0].length);
-  var first_loc;
+  console.log(polyline.length);
+  // var first_loc;
 
-  var results = polyline[0].map((item, index) => {
-      if(index==0){
-        first_loc=[item.lng, item.lat];
-      }
+  var results = polyline.map((item, index) => {
+      // if(index==0){
+      //   first_loc=[item.lng, item.lat];
+      // }
       return [item.lng, item.lat];
       
   });
   // console.log("final array in the result:");
   // console.log(results[results.length-1]);
 
-  if(results[results.length-1]!=first_loc){
-    results.push(first_loc);
-  }
+  // if(results[results.length-1]!=first_loc){
+  //   results.push(first_loc);
+  // }
   
 
   
-  results=[results];
+  // results=[results];
   console.log("results");
   console.log(results);
-  var geojson = turf.polygon(results);
+  var geojson = turf.lineString(results);
   console.log("geojson data:");
   console.log(geojson);
   var options = {tolerance: 0.01, highQuality: false};
 
   simplified = turf.simplify(geojson, options);
+  // var line = turf.polygonToLine(simplified);
   console.log("simplified:")
   console.log(simplified)
+  // console.log("line:")
+  // console.log(line)
+  
   L.geoJSON(simplified).addTo(map);
   simplified_created=1;
   
