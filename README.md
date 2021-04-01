@@ -28,11 +28,11 @@ This website is an assignment for the 5th lab (Adv. Topics on Geospatial Technol
 * run `application.py` in any IDE you like.
 * You will find a line in the console `Running on <server link>` where `<server link>` is the link of the server of the flask is working on. In my case, the server link is `http://127.0.0.1:5000/`. 
 * Copy the server link and paste it in the link box of any browser you like to go to the website.
-* 
+
 ![map](https://user-images.githubusercontent.com/26576895/113342420-c18db380-932e-11eb-9a48-3d109b9a8ed1.JPG)
 
 * Looking closely at the image above, you can see a map of the city of Calgary. On the top right of the map, the drawing toolbar exists to draw a polyline. Also, the user can simplify polyline by clicking on **Simplify** button, at the bottom left of the map.
-* once a user clicks on the polyline button on the toolbar, he can draw the polyline on the map, as you see below.
+* Once a user clicks on the polyline button on the toolbar, he can draw the polyline on the map, as you see below.
 
 ![drawing](https://user-images.githubusercontent.com/26576895/113343351-00703900-9330-11eb-97a4-929def0f86f6.JPG)
 
