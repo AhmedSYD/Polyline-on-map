@@ -86,7 +86,7 @@ document.getElementById("simplify").addEventListener("click", function() {
     return;
   }
   if(simplified_created){// simplified is already created and no more polygon is drawn
-    alert("Simplified polyline is already created and no more polygon is drawn!");
+    alert("Simplified polyline is already created and no more polyline is drawn!");
     return;   
   }
   console.log("outputlayers:");
