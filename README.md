@@ -67,6 +67,6 @@ This website is an assignment for the 5th lab (Adv. Topics on Geospatial Technol
 - `static/js/polyline_on_map.js`: all algorithms related to drawing, remove, and simplifying polylined are implemented in this file.
 
 ## Demo:
-- You can find the demo video for this webpage at this [**Link**]()
+- You can find the demo video for this webpage at this [**Link**](https://youtu.be/PlNLZwUzmKc)
 
 
